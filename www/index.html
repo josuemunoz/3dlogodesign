@@ -1,0 +1,348 @@
+<!DOCTYPE html> 
+<html>
+<head>
+<meta charset="utf-8">
+<!-- create this dynamicaly-->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<title>45 Graphics App</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+
+
+<link href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="http://mobile.45graphics.net/jquery-mobile/jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css"/>
+<script src="http://code.jquery.com/jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.js" type="text/javascript"></script>
+
+<!--
+<link href="/jquery-mobile/jquery.mobile.theme-1.0.min.css" rel="stylesheet" type="text/css"/>
+<link href="/jquery-mobile/jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css"/>
+<script src="/jquery-mobile/jquery-1.6.4.min.js" type="text/javascript"></script>
+<script src="/jquery-mobile/jquery.mobile-1.0.min.js" type="text/javascript"></script>
+-->
+
+</head> 
+<body> 
+
+  <div data-role="page" id="page">
+  
+      <div class="logo"><img src="assets/app-logo.jpg"></div>
+      <div id="slogan">
+      <h1>Welcome to 45 Graphics</h1>
+      <p>This is not A DIY (do it yourself) 3D app.</p>
+      <p>If you have a logo or idea you want done in 3d please send it to us for a price quote.</p>
+      <p>Down payment is required to start any design job.</p>
+      <a id="tel" href="tel:(619) 316-9904">Call today!</a><a id="tel" href="sms:(619) 316-9904">Text us your idea!</a>
+      <br>
+      </div>
+      
+      <div id="slogan"><p>If you need a 3d design please E-mail, Call or Text us with the following information for a quote: business name(if available), font type and colors to be used. If you dont know what you want contact us and tell us. If you are from outside the country please send us an email.</p>
+      <a id="emailB" href="mailto:logos@45graphics.net">logos@45graphics.net</a>
+   
+      </div>
+  
+    
+    
+      <div id="latestJob"></div>
+      <div data-role="content">
+          <!--<ul data-role="listview" data-inset="true" id="basic3d"><li><a href="#freeText">$10 Basic 3D text</a></li></ul>-->
+          <ul data-role="listview" data-inset="true" id="list">
+             <li data-role="list-divider">3D DESIGN SERVICES</li> 
+          </ul>
+          <div id="slogan">		
+         <a id="emailB" href="https://play.google.com/store/apps/details?id=com.graphics.logodesign">Review my work..</a>  
+      </div>
+      </div>
+      
+      <div class="form" style="display:none">
+                  
+          <h1>3d text</h1>        
+          <input type="text" name="textinput" placeholder="Text to do in 3d" id="textinput" value=""  />
+          <input type="text" name="textinput" placeholder="Email" id="email" value=""  />
+          <label><strong>Text color</strong></label>
+        <input id="textColor" type="color" onChange="changeColor();" />
+       <label><strong>Background color </strong></label>
+        <input id="backgroundColor" type="color" onChange="changeColor();" />
+      
+      </div>
+      
+      <div data-role="footer">
+          <h4>45graphics.net Mobile</h4>
+      </div>
+  </div>
+
+<div data-role="page" id="page2" data-add-back-btn="true">
+<div id="status">0 | 0</div>
+	<div data-role="header">
+		<h1 id="titlebaby">Page Two</h1>
+	</div>
+	<div data-role="content">	
+		<div id="b"></div>
+	</div>
+	<div data-role="footer">
+		<h4 id="footer"></h4>
+	</div>
+</div>
+
+<div data-role="page" id="page3">
+	<div data-role="header">
+		<h1>Order Form</h1>
+	</div>
+	<div data-role="content">	
+		
+	</div>
+	<div data-role="footer">
+		<h4>Order Form</h4>
+	</div>
+</div>
+
+<div data-role="page" id="page4">
+	<div data-role="header">
+		<h1>Page Four</h1>
+	</div>
+	<div data-role="content">	
+		Content		
+	</div>
+	<div data-role="footer">
+		<h4>Page Footer</h4>
+	</div>
+</div>
+<div data-role="page" id="freeText">
+  <div data-role="header">
+    <h1>$10 basic 3D text</h1>
+  </div>
+  <div data-role="content">
+  	<div id="bb">
+    	<p>Starting at $10 dollars per 3D text.</p>
+        <p>Here are samples of a basic 3D text. If you need your own 3D text, send us the following information.</p>
+        <p><h2>Text to do in 3d, colors to use and Font type, find a font type at www.daf</h2>
+        
+        <h2>ont.com</h2>
+        </p>
+      <p><img name="" src="http://45graphics.net/assets/web_sites/_small3d-logo-ez.jpg" alt="free 3d sample"></p>
+        <p><img name="" src="http://45graphics.net/assets/web_sites/_small3d-text-codmaniac.jpg" alt="free 3d sample"></p>
+    </div>
+  </div>
+  <div data-role="footer">
+    <h4>$10 basic 3D text</h4>
+  </div>
+</div>
+
+
+
+</body>
+
+<script>
+
+function changeColor(){
+		
+		//document.getElementById(theId).value = "";
+		var theId = event.target.id;
+		//this.value;
+		var x = "";
+		 x = document.getElementById(theId);
+		var y = "";
+		 y = document.getElementById(theId).value;
+		//alert(y);
+		x.style.background =  y;
+		document.getElementById("email").focus();
+		}
+function clearColor(){
+	var theId = event.target.id;
+	document.getElementById(theId).value = "";
+	};
+
+$(document).ready( function(){
+	
+	
+	
+	window.onscroll = yHandler();
+		
+	
+	function yHandler(){
+		
+		lookAtImagesPosition();
+	var yOffset = window.pageYOffset;
+	var newy = yOffset + window.innerHeight;
+	var b = document.getElementById("b");
+		var contentHeight = b.offsetHeight;
+		//this.newy = yOffset + window.innerHeight;
+		var showResult = document.getElementById("status");
+		showResult.innerHTML = contentHeight+ " | " + newy;		
+		
+		}
+function lookAtImagesPosition(){
+		var d = document.getElementById("b");
+		var	img = d.getElementsByTagName("img");
+			var yOffset = window.pageYOffset;
+	var newy = yOffset + window.innerHeight;
+	var posImage = "";
+			for(var i=0; i<img.length; i++){
+				posImage = img[i].offsetTop;
+				//console.log(posImage)
+				if(img[i].src == "http://www.45graphics.net/45GraphicsApp/assets/default.gif"){
+					if(posImage+25 <= newy){
+					img[i].src = img[i].title;
+					img[i].setAttribute("width", "100%");
+					}
+					}
+				
+				}
+	}
+	
+var appdata = "";
+	//api to pull data
+	$.getJSON("http://45graphics.net/api/index.php?appDataApi=true", function(info){
+	//$.getJSON("http://45graphics.net/api/index.php?table=web_sites", function(info){
+		//$("#list").empty();
+		appdata = info;
+		for(var i=0; i<info.length; i++){
+				//console.log(info[i]);
+				
+				console.log(info[i].type + " " + info[i].price);
+				var li = document.createElement("li");
+				var a  = document.createElement("a");
+				li.appendChild(a);
+				a.innerHTML = info[i].type + " " + info[i].price;
+				a.setAttribute("id", info[i].id);
+				a.setAttribute("rel", i);
+				a.setAttribute("title", info[i].type);
+				a.setAttribute("href", "#page2");
+				$("#list").append(li);
+				$("#list").listview('refresh');
+				
+				//var data = "";
+				//this.data = info;
+				a.onclick = doSomething;
+				/*
+			
+			////////////////////////
+			var img = document.createElement("img");
+				img.setAttribute("class", "ui-li-icon ui-li-thumb");
+				img.src = "http://45graphics.net/assets/web_sites/_tiny"+info[i].imagefilename;
+				img.setAttribute("width", 16);
+				////////////////////////////
+				
+				//////////////
+				
+				///////////////
+				a.appendChild(img);
+				//var ready = li.appendChild(a);
+				
+			
+			//$("ul").append("<li><a id="+ info[i].id+ " title="+ info[i].notes +" href="#page2">"+info[i].to_do+"</a></li>");
+			
+						}
+			//create a function please
+			//$("#latestJob").append(info[0].name);
+			placeImage(info[0].imagefilename, info[0].name);
+							*/
+	}
+		});
+		
+		function doSomething(){
+									appdata[this.rel][i] = "";
+								$("#b, #footer").empty();
+								var d= JSON.stringify(appdata[this.rel]);
+								$("#titlebaby, #footer").text($(this).text()); // set the title and footer for page2
+								
+								
+								for(var i=0; i < d.length; i++){
+									//console.log(appdata[this.rel][i].imagefilename);
+									placeImage(appdata[this.rel][i].imagefilename, appdata[this.rel][i].name, appdata[this.rel][i].notes);
+									
+								}
+								//index = $(this).attr("rel");
+								//console.log(this.id +" "+ this.rel +""+ d);
+								//id = $(this).attr("id");
+								
+								
+								//$("#b").empty().append($(this).text());
+								//var t = document.createTextNode(info[index].notes);
+								//var para = document.createElement("p");
+								//para.appendChild(t);
+								//$("#b").append(para);
+								//$("#b").append("<br/>");
+								
+								//var img = document.createElement("img");
+									//img.setAttribute("src", "http://www.45graphics.net/assets/web_sites/_mobile"+info[index].imagefilename);
+									//img.setAttribute("width", "90%");
+								//	img.setAttribute("height", "");
+							//$("#b").append(img);	
+								//$("#b").append("<br/>"+ info[index].webSite);
+								//createButton("Edit", "boton", "edit");
+								//console.log("fix this to make delete work");
+								//createButton("Delete Post!", "boton", "delete");
+			
+			}
+		
+		function placeImage(image, name, notes){
+				var text = document.createTextNode("3d logo for: "+name);
+				var p = document.createElement("p");
+				var p2 = document.createElement("p");
+				var hr = document.createElement("hr");
+				var br = document.createElement("br");
+				p2.innerHTML = notes;
+				
+				var latestJob = document.getElementById("b");
+				var	img = document.createElement("img");
+					img.setAttribute("title", "http://www.45graphics.net/assets/web_sites/_small"+image);
+					img.setAttribute("src", "http://www.45graphics.net/45GraphicsApp/assets/default.gif");
+					//img.setAttribute("width", "100%");
+					img.setAttribute("class", "latestJob");
+					p.appendChild(text);
+					
+					latestJob.appendChild(img)
+					latestJob.appendChild(p); ;
+					latestJob.appendChild(p2);
+					latestJob.appendChild(hr);
+					latestJob.appendChild(br);
+					
+				}
+		
+		function createButton(buttonText, myClass, type){
+		//<button data-icon="gear" data-iconpos="bottom">Button</button>
+		var p = "";
+		var a = "";
+			p = document.createElement("p");
+			a = document.createElement("a");
+			
+			
+			
+			
+			p.setAttribute("id", this.id);
+			p.onclick = function(){
+					var result = confirm("Are you sure you want to "+ type + "?");
+						if(type == "delete"){
+						if(result == true){
+							
+							$.getJSON("http://45graphics.com/api/index.php?delete=yes&id="+this.id, function(info){
+								alert(info.status);
+								$("li #"+info.id).css("background", "#F60").text("Item Deleted").css("color", "white").click(false);
+								console.log(info.id);
+								history.back();
+							});
+							
+							}else{
+								alert("No action will Happen!");
+								}
+						}
+						
+						
+				}
+			p.setAttribute("class", myClass);
+			a.innerHTML = buttonText;
+			a.setAttribute("id", type);
+			p.appendChild(a);
+			$("#b").append(p);
+			
+		}
+		
+		
+	
+	})
+
+
+</script>
+ <script type="text/javascript" src="cordova.js"></script>
+</html>

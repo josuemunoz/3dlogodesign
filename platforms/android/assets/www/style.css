@@ -1,0 +1,93 @@
+@charset "utf-8";
+/* CSS Document */
+body{-webkit-tap-highlight-color: rgba(0,0,0,0); margin:0;}
+.logo{ width:auto; height:auto; margin:auto; padding:0px; text-align:center;}
+
+.form{ width:91%; margin:auto; padding:1%; background-color:#CCC; border-radius:10px;}
+.form input{ background-color:none !important; margin:10px auto; width:90% !important; }
+.form, h1 label{ padding:10px; text-align:left;}
+
+
+
+
+
+h1{ margin:5px;}
+br{ margin:36px;}
+hr{  border: 0; height: 1px ; background: #333;}
+#status{ position:fixed; top:0px; right:0px; background: #333; color:#CCC; padding:10px; z-index:1; border-radius:10px; font-size:.8em;}
+.ui-mobile, .ui-page{
+	background: linear-gradient(#000, #000) !important; background: -webkit-linear-gradient(#000, #000) !important;
+
+}
+
+
+.header {position:fixed;z-index:10;top:0;width:100%}
+.content {padding:45px 15px}
+.footer {position:fixed;z-index:10;bottom:0;width:100%}
+
+.ui-page {
+    -webkit-backface-visibility: hidden;
+}
+.ui-bar-b{ background:#F90 !important; border-color: #FC0 !important; font-size:1.2 em !important; text-shadow:none !important;}
+
+/*color of font*/
+a{ color:#111 !important;}
+a:hover{ background-color: #CCC  !important; color: #333 !important; text-shadow:none; border: none;}
+ul>li:first-child:hover a{color:#CCC !important; text-shadow:none; border-radius:10px 10px 0 0; z-index:5;}
+ul>li:last-child:hover a{color: inherit !important; text-shadow:none; border-radius:0 0 10px 10px;}
+#basic3d a:hover{ border-radius:10px;}
+
+a:active{ background-color: #FF0;}
+/*tel*/
+#tel, #emailB{ color:white !important; font-size: 1.1em;}
+
+#slogan > #emailB{ background: linear-gradient(#555, #999) repeat scroll 0 0 rgba(0, 0, 0, 0);
+background: -webkit-linear-gradient(#555, #999);
+    border-radius: 10px;
+    box-shadow: 1px 2px 2px black;
+    color: white;
+    float: left;
+    font-family: Verdana;
+    
+    padding: 10px 0;
+    text-decoration: none;
+    width: 100%; margin:5px 0;}
+   
+    .bprice{ font-size:.8em !important; color:#444;}
+h2{ color:#000;}
+#slogan > #tel{ background: linear-gradient(#555, #999) repeat scroll 0 0 rgba(0, 0, 0, 0);
+background: -webkit-linear-gradient(#555, #999);
+    border-radius: 10px;
+    box-shadow: 1px 2px 2px black;
+    color: white;
+    float: left;
+    font-family: Verdana;
+    
+    padding: 10px 0;
+    text-decoration: none;
+    width: 49%; margin:5px .5%;}
+    .btext{ font-size:.8em !important; padding:10px !important;}
+    .bprice{ font-size:.8em !important; color:#444;}
+	#slogan > #tel:nth-child(2){ width:49%; margin-left:0}
+	#slogan > #tel:nth-child(3){ width:50%; margin-right:0}
+
+#b{ min-height:1500px;}
+#b > p{ color:white; text-shadow:none; text-align:center; font-size:1em;}
+#b > img{ border-radius:20px; box-shadow:1px 2px 2px #000000;}
+#bb > p{ color:white; text-shadow:none; text-align:center; font-size:1em;}
+#bb > img{ border-radius:20px; box-shadow:1px 2px 2px #000000;}
+
+#slogan p{ text-align:left; line-height:20px; color:#CCC;}
+#slogan{ font:Arial, Helvetica, sans-serif; border-radius:10px; background:#000; font-size:.8em; color:white; text-shadow:1px 1px 2px #000000; padding: 20px; text-align:center;}
+#latestJob{background: none repeat scroll 0 0 black; border: solid #999 1px 0px;
+    margin: 10px 0;
+    padding: 10px;
+    text-align: center; display:none;
+    width: auto; color:#FC0; clear:both; text-shadow:none; border-style:solid; border-width:1px 0px; border-color:#999;}
+h2{ color:white; text-shadow:none;}
+
+
+
+
+
+
