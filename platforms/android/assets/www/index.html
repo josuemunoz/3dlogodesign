@@ -75,7 +75,7 @@
 		<h1 id="titlebaby">Page Two</h1>
 	</div>
 	<div data-role="content">	
-		<div id="b"><br><br></div>
+		<div id="b"></div>
 	</div>
 	<div data-role="footer">
 		<h4 id="footer"></h4>
@@ -158,14 +158,16 @@ $(document).ready( function(){
 		
 	
 	function yHandler(){
-		lookAtImagesPosition();
+		
 	var yOffset = window.pageYOffset;
 	var newy = yOffset + window.innerHeight;
 	var b = document.getElementById("b");
 		var contentHeight = b.offsetHeight;
+		//alert(contentHeight);
 		//this.newy = yOffset + window.innerHeight;
 		var showResult = document.getElementById("status");
 		showResult.innerHTML = contentHeight+ " | " + newy;		
+		lookAtImagesPosition();
 		
 		}
 function lookAtImagesPosition(){
