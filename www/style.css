@@ -71,7 +71,7 @@ background: -webkit-linear-gradient(#555, #999);
 	#slogan > #tel:nth-child(2){ width:49%; margin-left:0}
 	#slogan > #tel:nth-child(3){ width:50%; margin-right:0}
 
-#b{ min-height:1500px !important;}
+#b{ min-height:100px;}
 #b > p{ color:white; text-shadow:none; text-align:center; font-size:1em;}
 #b > img{ border-radius:20px; box-shadow:1px 2px 2px #000000;}
 #bb > p{ color:white; text-shadow:none; text-align:center; font-size:1em;}
