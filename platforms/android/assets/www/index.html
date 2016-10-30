@@ -8,7 +8,6 @@
 <title>45 Graphics App</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
 
-
 <link href="http://code.jquery.com/mobile/1.0/jquery.mobile-1.0.min.css" rel="stylesheet" type="text/css"/>
 <link href="http://mobile.45graphics.net/jquery-mobile/jquery.mobile.structure-1.0.min.css" rel="stylesheet" type="text/css"/>
 <script src="http://code.jquery.com/jquery-1.6.4.min.js" type="text/javascript"></script>
@@ -43,7 +42,6 @@
 
       <div id="latestJob"></div>
       <div data-role="content">
-          <!--<ul data-role="listview" data-inset="true" id="basic3d"><li><a href="#freeText">$10 Basic 3D text</a></li></ul>-->
           <ul data-role="listview" data-inset="true" id="list">
              <li data-role="list-divider">3D DESIGN SERVICES</li> 
           </ul>
@@ -51,8 +49,13 @@
          <a id="emailB" href="https://play.google.com/store/apps/details?id=com.graphics.logodesign">Review my work..</a>  
       </div>
       </div>
-      
-      <div class="form" style="display:none">
+      <div id="slogan">
+      <h1>We now offer t-shirts with your logos for $25</h1>
+      <p>We can print the logo you provide or the 3d design we create on the shirt.</p>
+      <p>Light color shirts $18, Dark shirts $25</p>
+      <p>Get your gamer name on a shirt included when you buy a shirt a $10 dollar value.</p>
+      <img src="assets/shirt_master.jpg" width="310" style="border:none !important;"></div>
+    <div class="form" style="display:none">
                   
           <h1>3d text</h1>        
         <input type="text" name="textinput" placeholder="Text to do in 3d" id="textinput" value=""  />
@@ -75,7 +78,8 @@
 		<h1 id="titlebaby">Page Two</h1>
 	</div>
 	<div data-role="content">	
-		<div id="b"></div>
+    
+		<div id="b">here is a test</div>
 	</div>
 	<div data-role="footer">
 		<h4 id="footer"></h4>
@@ -232,11 +236,11 @@ var appdata = "";
 									
 								}
 			}
+			
 		
 		function placeImage(image, name, notes){
 			
-				
-		
+			
 				var text = document.createTextNode("3d logo for: "+name);
 				var p = document.createElement("p");
 				var p2 = document.createElement("p");
@@ -303,8 +307,128 @@ var appdata = "";
 		
 	
 	})
+var app = {
+	
+    // Application Constructor
+    initialize: function() {
+        this.bindEvents();
+    },
+    // Bind Event Listeners
+    //
+    // Bind any events that are required on startup. Common events are:
+    // 'load', 'deviceready', 'offline', and 'online'.
+    bindEvents: function() {
+        document.addEventListener('deviceready', this.onDeviceReady, false);
+    },
+    // deviceready Event Handler
+    //
+    // The scope of 'this' is the event. In order to call the 'receivedEvent'
+    // function, we must explicitly call 'app.receivedEvent(...);'
+    onDeviceReady: function() {
+        console.log('Received Device Ready Event');
+        console.log('calling setup push');
+        app.setupPush();
+    },
+	
+    setupPush: function() {
+        console.log('calling push init');
+        var push = PushNotification.init({
+            "android": {
+                //"senderID": "eElVSOVofa8"
+				 "senderID": 291568499285
+				//eElVSOVofa8
+            },
+            "browser": {},
+            "ios": {
+                "sound": true,
+                "vibration": true,
+                "badge": true
+            },
+            "windows": {}
+        });
+        console.log('after init');
 
+        push.on('registration', function(data) {
+            console.log('registration event: ' + data.registrationId);
+//alert(data.registrationId);
+            var oldRegId = localStorage.getItem('registrationId');
+			
+			
+			// alert(data.registrationId);
+            
+			var appName = "3dlogodesign";
+ 			var appCategory = "pushNotifications";
+			var d = new Date();
+			var appRegistration = d.getFullYear()+"-"+ d.getMonth() +"-"+ d.getDate();
+ 			//var appUserName = prompt("your name", "");
+			
+				
+			//if (oldRegId) {
+			if(oldRegId !== data.registrationId) { //working one
+                // Save new registration ID
+                localStorage.setItem('registrationId', data.registrationId);
+               
+				// Post registrationId to your app server as the value has changed
+				
+				x = new XMLHttpRequest();
+				//alert(device.model+ " " +device.uuid +" "+device.platform)
+				var sendData  = "?regid="+oldRegId;
+					sendData += "&appName="+escape(appName);
+					sendData += "&appCategory="+escape(appCategory);
+					sendData += "&appRegistration="+escape(appRegistration);
+					sendData += "&deviceModel="+escape(device.model);
+					sendData += "&uuid="+escape(device.uuid);
+					sendData += "&devicePlatform="+escape(device.platform);
+					
+					
+				x.open("GET", "http://45graphics.net/curlTest/index.php"+sendData, true);
+				x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				x.onreadystatechange = function(){
+						if(x.readyState == 4 && x.status == 200){
+							alert(x.responseText);
+						}
+				}
+		
+			x.send();
+				
+            }
 
+            var parentElement = document.getElementById('registration');
+            var listeningElement = parentElement.querySelector('.waiting');
+            var receivedElement = parentElement.querySelector('.received');
+
+            listeningElement.setAttribute('style', 'display:none;');
+            receivedElement.setAttribute('style', 'display:block;');
+        });
+
+        push.on('error', function(e) {
+            console.log("push error = " + e.message);
+        });
+		
+		push.clearAllNotifications(function() {
+    console.log('success');
+}, function() {
+    console.log('error');
+});
+
+        push.on('notification', function(data) {
+            //console.log('notification event');
+			//var ul = document.getElementById("targetbaby");
+			//var li = document.createElement("li");
+				//li.innerHTML =  data.title+" "+data.message;
+				//ul.appendChild(li); 
+            navigator.notification.alert(
+                data.message,
+				data.count,         // message
+                null,                 // callback
+               data.title,           // title
+				'Ok'                  // buttonName
+            );
+			
+       });
+    }
+};
+app.initialize();
 </script>
  <script type="text/javascript" src="cordova.js"></script>
 </html>
