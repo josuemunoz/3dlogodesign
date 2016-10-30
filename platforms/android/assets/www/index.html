@@ -133,7 +133,7 @@
 <script>
 
 function changeColor(){
-		
+			
 		//document.getElementById(theId).value = "";
 		var theId = event.target.id;
 		//this.value;
@@ -154,8 +154,8 @@ $(document).ready( function(){
 	
 	
 	
-	window.onscroll = yHandler;
-		
+	
+	
 	
 	function yHandler(){
 		
@@ -196,6 +196,7 @@ var appdata = "";
 	$.getJSON("http://45graphics.net/api/index.php?appDataApi=true", function(info){
 	//$.getJSON("http://45graphics.net/api/index.php?table=web_sites", function(info){
 		//$("#list").empty();
+		
 		appdata = info;
 		for(var i=0; i<info.length; i++){
 				//console.log(info[i]);
@@ -211,34 +212,11 @@ var appdata = "";
 				a.setAttribute("href", "#page2");
 				$("#list").append(li);
 				$("#list").listview('refresh');
-				
-				//var data = "";
+								//var data = "";
 				//this.data = info;
-				a.onclick = doSomething;
-				/*
-			
-			////////////////////////
-			var img = document.createElement("img");
-				img.setAttribute("class", "ui-li-icon ui-li-thumb");
-				img.src = "http://45graphics.net/assets/web_sites/_tiny"+info[i].imagefilename;
-				img.setAttribute("width", 16);
-				////////////////////////////
-				
-				//////////////
-				
-				///////////////
-				a.appendChild(img);
-				//var ready = li.appendChild(a);
-				
-			
-			//$("ul").append("<li><a id="+ info[i].id+ " title="+ info[i].notes +" href="#page2">"+info[i].to_do+"</a></li>");
-			
-						}
-			//create a function please
-			//$("#latestJob").append(info[0].name);
-			placeImage(info[0].imagefilename, info[0].name);
-							*/
+				a.onclick = doSomething;			
 	}
+
 		});
 		
 		function doSomething(){
@@ -253,31 +231,12 @@ var appdata = "";
 									placeImage(appdata[this.rel][i].imagefilename, appdata[this.rel][i].name, appdata[this.rel][i].notes);
 									
 								}
-								//index = $(this).attr("rel");
-								//console.log(this.id +" "+ this.rel +""+ d);
-								//id = $(this).attr("id");
-								
-								
-								//$("#b").empty().append($(this).text());
-								//var t = document.createTextNode(info[index].notes);
-								//var para = document.createElement("p");
-								//para.appendChild(t);
-								//$("#b").append(para);
-								//$("#b").append("<br/>");
-								
-								//var img = document.createElement("img");
-									//img.setAttribute("src", "http://www.45graphics.net/assets/web_sites/_mobile"+info[index].imagefilename);
-									//img.setAttribute("width", "90%");
-								//	img.setAttribute("height", "");
-							//$("#b").append(img);	
-								//$("#b").append("<br/>"+ info[index].webSite);
-								//createButton("Edit", "boton", "edit");
-								//console.log("fix this to make delete work");
-								//createButton("Delete Post!", "boton", "delete");
-			
 			}
 		
 		function placeImage(image, name, notes){
+			
+				
+		
 				var text = document.createTextNode("3d logo for: "+name);
 				var p = document.createElement("p");
 				var p2 = document.createElement("p");
@@ -289,7 +248,6 @@ var appdata = "";
 				var	img = document.createElement("img");
 					img.setAttribute("title", "http://www.45graphics.net/assets/web_sites/_small"+image);
 					img.setAttribute("src", "http://www.45graphics.net/45GraphicsApp/assets/default.gif");
-					//img.setAttribute("width", "100%");
 					img.setAttribute("class", "latestJob");
 					p.appendChild(text);
 					
@@ -300,7 +258,7 @@ var appdata = "";
 					latestJob.appendChild(br);
 					
 				}
-		
+		/*
 		function createButton(buttonText, myClass, type){
 		//<button data-icon="gear" data-iconpos="bottom">Button</button>
 		var p = "";
@@ -338,7 +296,10 @@ var appdata = "";
 			$("#b").append(p);
 			
 		}
+		*/
 		
+		
+		window.onscroll = yHandler;
 		
 	
 	})
