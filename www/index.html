@@ -159,10 +159,12 @@ $(document).ready( function(){
 	
 	function yHandler(){
 		
-		window.scrollTo(0, 1);
+		//window.scrollTo(0, 1);
 	var yOffset = window.pageYOffset;
 	var newy = yOffset + window.innerHeight;
 	var b = document.getElementById("b");
+		
+		
 		var contentHeight = b.offsetHeight;
 		//alert(contentHeight);
 		//this.newy = yOffset + window.innerHeight;
@@ -185,9 +187,8 @@ function lookAtImagesPosition(){
 					img[i].src = img[i].title;
 					img[i].setAttribute("width", "100%");
 					}
-					}
-				
-				}
+				}	
+			}
 	}
 	
 var appdata = "";
