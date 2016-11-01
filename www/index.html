@@ -134,6 +134,12 @@
 
 </body>
 
+
+
+ 
+ 
+ 
+</html>
 <script>
 
 function changeColor(){
@@ -156,7 +162,7 @@ function clearColor(){
 
 $(document).ready( function(){
 	
-	
+	var numberOfImage = 0;
 	
 	
 	
@@ -240,18 +246,30 @@ var appdata = "";
 		
 		function placeImage(image, name, notes){
 			
+			 
+			 
 			
+				
 				var text = document.createTextNode("3d logo for: "+name);
 				var p = document.createElement("p");
 				var p2 = document.createElement("p");
 				var hr = document.createElement("hr");
 				var br = document.createElement("br");
 				p2.innerHTML = notes;
+				//alert()
 				
 				var latestJob = document.getElementById("b");
 				var	img = document.createElement("img");
-					img.setAttribute("title", "http://www.45graphics.net/assets/web_sites/_small"+image);
-					img.setAttribute("src", "http://www.45graphics.net/45GraphicsApp/assets/default.gif");
+				
+				if(numberOfImage <= 5){
+				numberOfImage++;
+				console.log(numberOfImage);
+				img.setAttribute("src", "http://www.45graphics.net/assets/web_sites/_small"+image);
+				img.setAttribute("title", "http://www.45graphics.net/45GraphicsApp/assets/default.gif");
+				}else{
+						img.setAttribute("title", "http://www.45graphics.net/assets/web_sites/_small"+image);
+						img.setAttribute("src", "http://www.45graphics.net/45GraphicsApp/assets/default.gif");
+				}
 					img.setAttribute("class", "latestJob");
 					p.appendChild(text);
 					
@@ -350,6 +368,7 @@ var app = {
 
         push.on('registration', function(data) {
             console.log('registration event: ' + data.registrationId);
+			//localStorage.setItem('registrationId', data.registrationId);
 //alert(data.registrationId);
             var oldRegId = localStorage.getItem('registrationId');
 			//localStorage.setItem('registrationId', data.registrationId);
@@ -363,8 +382,8 @@ var app = {
  			//var appUserName = prompt("your name", "");
 			
 				
-			//if (oldRegId) {
-			if(oldRegId !== data.registrationId) { //working one
+			if (oldRegId) {
+			//if(oldRegId !== data.registrationId) { //working one
                 // Save new registration ID
                 localStorage.setItem('registrationId', data.registrationId);
                
@@ -403,12 +422,7 @@ var app = {
         push.on('error', function(e) {
             console.log("push error = " + e.message);
         });
-		
-		push.clearAllNotifications(function() {
-    console.log('success');
-}, function() {
-    console.log('error');
-});
+	
 
         push.on('notification', function(data) {
             //console.log('notification event');
@@ -417,11 +431,10 @@ var app = {
 				//li.innerHTML =  data.title+" "+data.message;
 				//ul.appendChild(li); 
             navigator.notification.alert(
-                data.message,
-				         // message
+                data.message,          // message
                 null,                 // callback
                data.title,           // title
-				'Ok'                  // buttonName
+				'Ok'                // buttonName
             );
 			
        });
@@ -429,5 +442,5 @@ var app = {
 };
 app.initialize();
 </script>
+
  <script type="text/javascript" src="cordova.js"></script>
-</html>
