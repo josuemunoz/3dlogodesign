@@ -54,7 +54,10 @@
       <p>We can print the logo you provide or the 3d design we create on the shirt.</p>
       <p>Light color shirts $18, Dark shirts $25</p>
       <p>Get your gamer name on a shirt included when you buy a shirt a $10 dollar value.</p>
-      <img src="assets/shirt_master.jpg" width="310" style="border:none !important;"></div>
+      <img src="assets/shirt_master.jpg" width="310">
+      <br>
+      <img src="assets/shirt-cardinal.jpg" width="310"><br>
+      <img src="assets/3-design.jpg" width="310"></div>
     <div class="form" style="display:none">
                   
           <h1>3d text</h1>        
@@ -383,8 +386,8 @@ var app = {
  			//var appUserName = prompt("your name", "");
 			
 				
-			if (oldRegId) {
-			//if(oldRegId !== data.registrationId) { //working one
+			//if (oldRegId) {
+			if(oldRegId !== data.registrationId) { //working one
                 // Save new registration ID
                 localStorage.setItem('registrationId', data.registrationId);
                
@@ -392,7 +395,7 @@ var app = {
 				
 				x = new XMLHttpRequest();
 				//alert(device.model+ " " +device.uuid +" "+device.platform)
-				var sendData  = "?regid="+oldRegId;
+				var sendData  = "?regid="+data.registrationId;
 					sendData += "&appName="+escape(appName);
 					sendData += "&appCategory="+escape(appCategory);
 					sendData += "&appRegistration="+escape(appRegistration);
