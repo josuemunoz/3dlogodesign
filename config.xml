@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
     xmlns:gap = "http://phonegap.com/ns/1.0"
     id        = "com.graphics.logodesign"
-    version   = "1.0.21">
+    version   = "1.0.23">
   <name>3D Logo Design</name>
 
 <description>
@@ -13,21 +13,20 @@
 Josue Munoz
 </author>
 
-
+<!--
     <preference name="android-build-tool" value="gradle" />
-    <plugin name="phonegap-plugin-push" source="npm" spec="1.8.1">
+    -->
+	
+	<plugin name="phonegap-plugin-push" source="npm" spec="1.8.1">
         <params>
 		<param name="SENDER_ID" value="291568499285" /> 
     	</params>
 	</plugin>
 
 
- <config-file platform="ios" target="*-Info.plist" parent="NSAppTransportSecurity">
-        <dict>
-            <key>NSAllowsArbitraryLoads</key>
-            <true/>
-        </dict>
-    </config-file>
+	<config-file platform="ios" target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
+		<string>pictures will be used only if app user takes them.</string>
+	</config-file>
 
 <config-file platform="ios" target="*-Info.plist" parent="NSCameraUsageDescription">
 		<string>pictures will be used only if app user takes them :).</string>
