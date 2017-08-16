@@ -21,9 +21,9 @@
 -->
 
 </head> 
-<body> 
+<body>
 
-  <div data-role="page" id="page">
+<div data-role="page" id="page">
   
       <div class="logo"><img src="assets/app-logo.jpg"></div>
       <div id="slogan">
@@ -74,6 +74,27 @@
           <h4>45graphics.net Mobile</h4>
       </div>
   </div>
+  
+  
+<div data-role="page" id="orderPage" data-add-back-btn="true">
+  <div data-role="header">
+    <h1>Header</h1>
+  </div>
+  <div data-role="content">
+    <div data-role="fieldcontain">
+      
+      <label for="textinput2">Text Input:</label>
+      <input type="text" name="textinput2" id="textinput2" value=""  />
+    </div>
+  
+  </div>
+  <div data-role="footer">
+    <h4>Footer</h4>
+  </div>
+</div>
+  
+  
+  
 
 <div data-role="page" id="page2" data-add-back-btn="true">
 <div id="status">0 | 0</div>
@@ -238,15 +259,54 @@ var appdata = "";
 								$("#b, #footer").empty();
 								var d= JSON.stringify(appdata[this.rel]);
 								$("#titlebaby, #footer").text($(this).text()); // set the title and footer for page2
-								
+								createPaymentLink();	
 								
 								for(var i=0; i < d.length; i++){
 									//console.log(appdata[this.rel][i].imagefilename);
 									placeImage(appdata[this.rel][i].imagefilename, appdata[this.rel][i].name, appdata[this.rel][i].notes);
 									
 								}
+							
+							
 			}
 			
+		function createPaymentLink(){
+			
+			
+			
+			var page = document.getElementById("b");
+			var b = document.createElement("div");
+			
+				
+				b.setAttribute("class", "orderToday");
+				b.addEventListener("click", orderPage);
+				
+				page.appendChild(b);
+				
+				
+				switch(event.target.id){
+					case "3dtext":
+						this.job = "ORDER A 3D TEXT";
+					break;
+					
+					case "gm":
+						this.job = "ORDER A GAMING LOGO";
+					break;
+					
+					case "custom3d":
+						this.job = "ORDER A CUSTOM 3D LOGO";
+					break
+						
+					}
+					var t = document.createTextNode(job);
+					b.appendChild(t);
+				//alert(t.nodeValue);
+			}
+			
+		function orderPage(){
+			//alert("ok");
+			document.location.href = "#orderPage";
+			}
 		
 		function placeImage(image, name, notes){
 			

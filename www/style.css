@@ -7,6 +7,7 @@ body{-webkit-tap-highlight-color: rgba(0,0,0,0); margin:0;}
 .form input{ background-color:none !important; margin:10px auto; width:90% !important; }
 .form, h1 label{ padding:10px; text-align:left;}
 
+.orderToday{ width:25%; position:fixed;  color:#000; font-weight:bold; border:1px solid #FFF; display:block; height:auto; padding:10px; background-color:#FC3; border-radius:20px; font-size:.8em;}
 
 
 
