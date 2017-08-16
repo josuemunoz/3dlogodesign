@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
     xmlns:gap = "http://phonegap.com/ns/1.0"
     id        = "com.graphics.logodesign"
-    version   = "1.0.24">
+    version   = "1.0.25">
   <name>3D Logo Design</name>
 
 <description>
@@ -24,10 +24,10 @@ Josue Munoz
 		<dict>
 			<key>NSPhotoLibraryUsageDescription</key>
 				<string>pictures will be used only if app user takes them.</string>
-					<key></key>
-						<string>pictures will be used only if app user takes them :).</dict>
-							<key></key>
-								<string>sound will be used only if app user wants :).</plist>
+					<key>NSCameraUsageDescription</key>
+						<string>pictures will be used only if app user takes them :).</string>
+							<key>NSMicrophoneUsageDescription</key>
+								<string>sound will be used only if app user wants :).</string>
 		</dict>
 	</plist>
 <!--
@@ -70,13 +70,13 @@ Josue Munoz
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
 	
-	<!--
+
 	<plugin name="phonegap-plugin-push" source="npm" spec="1.8.1">
         <params>
 		<param name="SENDER_ID" value="291568499285" /> 
     	</params>
 	</plugin>
-	-->
+	
 	
     <platform name="android">
         <icon density="ldpi" src="www/res/icon/android/drawable-ldpi-icon.png" />
