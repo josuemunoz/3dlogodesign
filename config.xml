@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
     xmlns:gap = "http://phonegap.com/ns/1.0"
     id        = "com.graphics.logodesign"
-    version   = "1.0.26">
+    version   = "1.0.27">
   <name>3D Logo Design</name>
 
 <description>
@@ -22,11 +22,11 @@ Josue Munoz
 	<config-file platform="ios" target="*-Info.plist" version="1.0">
 
 		<dict>
-			<key>NSPhotoLibraryUsageDescription</key>
+			<parent>NSPhotoLibraryUsageDescription</parent>
 				<string>pictures will be used only if app user takes them.</string>
-					<key>NSCameraUsageDescription</key>
+					<parent>NSCameraUsageDescription</parent>
 						<string>pictures will be used only if app user takes them :).</string>
-							<key>NSMicrophoneUsageDescription</key>
+							<parent>NSMicrophoneUsageDescription</parent>
 								<string>sound will be used only if app user wants :).</string>
 		</dict>
 
