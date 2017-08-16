@@ -22,7 +22,7 @@ Josue Munoz
 	</plugin>
 
 	
-	<platform="ios">
+
 	
 		<config-file target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
 		<string>pictures will be used only if app user takes them.</string>
@@ -36,7 +36,7 @@ Josue Munoz
 		<string>sound will be used only if app user wants :).</string>
 		</config-file>
 	
-	</platform>
+	
 <!--
 
 	<config-file platform="ios" target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
