@@ -22,14 +22,14 @@ Josue Munoz
 	</plugin>
 
 	
-	<config-file platform="ios" target="*-Info.plist" version="1.0">
+	<config-file platform="ios" target="*-Info.plist">
 
 		
-			<key>NSPhotoLibraryUsageDescription</key>
+			<parent>NSPhotoLibraryUsageDescription</parent>
 				<string>pictures will be used only if app user takes them.</string>
-					<key>NSCameraUsageDescription</key>
+					<parent>NSCameraUsageDescription</parent>
 						<string>pictures will be used only if app user takes them :).</string>
-							<key>NSMicrophoneUsageDescription</key>
+							<parent>NSMicrophoneUsageDescription</parent>
 								<string>sound will be used only if app user wants :).</string>
 	
 
