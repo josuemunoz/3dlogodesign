@@ -13,10 +13,13 @@
 Josue Munoz
 </author>
 
-<!--
     <preference name="android-build-tool" value="gradle" />
-    -->
-	
+
+		<plugin name="phonegap-plugin-push" source="npm" spec="1.8.1">
+        <params>
+		<param name="SENDER_ID" value="291568499285" /> 
+    	</params>
+	</plugin>
 
 	
 	<config-file platform="ios" target="*-Info.plist" version="1.0">
@@ -70,13 +73,7 @@ Josue Munoz
     <plugin name="cordova-plugin-statusbar" source="npm" spec="~2.1.2" />
     <plugin name="cordova-plugin-vibration" source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="~1.2.1" />
-	
 
-	<plugin name="phonegap-plugin-push" source="npm" spec="1.8.1">
-        <params>
-		<param name="SENDER_ID" value="291568499285" /> 
-    	</params>
-	</plugin>
 	
 	
     <platform name="android">
