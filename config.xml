@@ -2,7 +2,7 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
     xmlns:gap = "http://phonegap.com/ns/1.0"
     id        = "com.graphics.logodesign"
-    version   = "1.0.23">
+    version   = "1.0.24">
   <name>3D Logo Design</name>
 
 <description>
@@ -17,12 +17,28 @@ Josue Munoz
     <preference name="android-build-tool" value="gradle" />
     -->
 	
+	
+
+	
+
 	<plugin name="phonegap-plugin-push" source="npm" spec="1.8.1">
         <params>
 		<param name="SENDER_ID" value="291568499285" /> 
     	</params>
 	</plugin>
-
+	
+	
+	<plist version="1.0">
+		<dict>
+			<key>NSPhotoLibraryUsageDescription</key>
+				<string>pictures will be used only if app user takes them.</string>
+					<key></key>
+						<string>pictures will be used only if app user takes them :).</dict>
+							<key></key>
+								<string>sound will be used only if app user wants :).</plist>
+		</dict>
+	</plist>
+<!--
 
 	<config-file platform="ios" target="*-Info.plist" parent="NSPhotoLibraryUsageDescription">
 		<string>pictures will be used only if app user takes them.</string>
@@ -35,7 +51,7 @@ Josue Munoz
 	<config-file platform="ios" target="*-Info.plist" parent="NSMicrophoneUsageDescription">
 		<string>sound will be used only if app user wants :).</string>
 	</config-file>
-
+-->
     <content src="index.html" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
