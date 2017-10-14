@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <!-- create this dynamicaly-->
 
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 <title>45 Graphics App</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -27,10 +28,24 @@
   
       <div class="logo"><img src="assets/app-logo.jpg"></div>
       <div id="slogan">
-      <h1>Welcome to 45 Graphics</h1>
+      <h1>Welcome to 45 Graphics design fase</h1>
       <p>This is not A DIY (do it yourself) 3D app.</p>
       <p>If you have a logo or idea you want done in 3d please send it to us for a price quote.</p>
       <p>Down payment is required to start any design job.</p>
+      
+      <div class="free">
+      	<h1>Free 3d Text</h1>
+      	<label>3d text:</label>
+      		<input name="3dtext" id="3dtext" placeholder="3d text idea" type="text">
+        <label>Font color:</label>
+        	<input name="fontColor" id="fontColor" type="color">
+        <label>Background color:</label>
+        	<input name="backgroundColor" id="backgroundColor" type="color">
+        <label>Email adress:</label>
+        	<input name="email" id="email" placeholder="email" type="email">
+            <input name="submit" type="button" value="submit">
+      </div>
+      
       <a id="tel" href="tel:(619) 316-9904">Call today!</a><a id="tel" href="sms:(619) 316-9904">Text us your idea!</a>
       <br>
       </div>
@@ -166,6 +181,14 @@
 
 <script>
 
+function getTheSize(){
+	
+	var w = window.innerWidth;
+	var h = window.innerHeight;
+	console.log(w + " -- " + h);
+	
+	}
+getTheSize();
 function changeColor(){
 			
 		//document.getElementById(theId).value = "";
@@ -254,54 +277,39 @@ var appdata = "";
 
 		});
 		
-		function doSomething(){
-									appdata[this.rel][i] = "";
-								$("#b, #footer").empty();
-								var d= JSON.stringify(appdata[this.rel]);
-								$("#titlebaby, #footer").text($(this).text()); // set the title and footer for page2
-								createPaymentLink();	
-								
-								for(var i=0; i < d.length; i++){
-									//console.log(appdata[this.rel][i].imagefilename);
-									placeImage(appdata[this.rel][i].imagefilename, appdata[this.rel][i].name, appdata[this.rel][i].notes);
-									
-								}
-							
-							
-			}
+function doSomething(){
+	appdata[this.rel][i] = "";
+	$("#b, #footer").empty();
+	var d= JSON.stringify(appdata[this.rel]);
+	$("#titlebaby, #footer").text($(this).text()); // set the title and footer for page2
+	createPaymentLink();
+	for(var i=0; i < d.length; i++){
+		//console.log(appdata[this.rel][i].imagefilename);
+		placeImage(appdata[this.rel][i].imagefilename, appdata[this.rel][i].name, appdata[this.rel][i].notes);				
+	}					
+}
 			
-		function createPaymentLink(){
-			
-			
-			
-			var page = document.getElementById("b");
-			var b = document.createElement("div");
-			
-				
-				b.setAttribute("class", "orderToday");
-				b.addEventListener("click", orderPage);
-				
-				page.appendChild(b);
-				
-				
-				switch(event.target.id){
-					case "3dtext":
-						this.job = "ORDER A 3D TEXT";
+function createPaymentLink(){
+	var page = document.getElementById("b");
+	var b = document.createElement("div");		
+		b.setAttribute("class", "orderToday");
+		b.addEventListener("click", orderPage);
+		page.appendChild(b);
+			switch(event.target.id){
+				case "3dtext":
+					this.job = "ORDER A 3D TEXT";
 					break;
-					
-					case "gm":
-						this.job = "ORDER A GAMING LOGO";
+				case "gm":
+					this.job = "ORDER A GAMING LOGO";
 					break;
-					
-					case "custom3d":
-						this.job = "ORDER A CUSTOM 3D LOGO";
-					break
-						
-					}
-					var t = document.createTextNode(job);
-					b.appendChild(t);
-				//alert(t.nodeValue);
+				case "custom3d":
+					this.job = "ORDER A CUSTOM 3D LOGO";
+					break	
 			}
+	var t = document.createTextNode(job);
+	b.appendChild(t);
+	//alert(t.nodeValue);
+}
 			
 		function orderPage(){
 			//alert("ok");
