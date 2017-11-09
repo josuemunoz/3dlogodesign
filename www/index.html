@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <!-- create this dynamicaly-->
 
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 <title>45 Graphics App</title>
 <link href="style.css" rel="stylesheet" type="text/css" />
@@ -28,24 +27,99 @@
   
       <div class="logo"><img src="assets/app-logo.jpg"></div>
       <div id="slogan">
-      <h1>Welcome to 45 Graphics design fase</h1>
-      <p>This is not A DIY (do it yourself) 3D app.</p>
+      <h1>Welcome to 45 Graphics</h1>
       <p>If you have a logo or idea you want done in 3d please send it to us for a price quote.</p>
-      <p>Down payment is required to start any design job.</p>
       
-      <div class="free">
-      	<h1>Free 3d Text</h1>
-      	<label>3d text:</label>
-      		<input name="3dtext" id="3dtext" placeholder="3d text idea" type="text">
-        <label>Font color:</label>
-        	<input name="fontColor" id="fontColor" type="color">
-        <label>Background color:</label>
-        	<input name="backgroundColor" id="backgroundColor" type="color">
-        <label>Email adress:</label>
-        	<input name="email" id="email" placeholder="email" type="email">
-            <input name="submit" type="button" value="submit">
+      <div id="notifyDesignReady">
+      	<img src="https://45graphics.net/myimage.jpg" width="100%">
       </div>
       
+       <script type="text/javascript" language="javascript">
+    	var formdata = new FormData();
+		var allok = 0;
+		var d = {
+			
+			
+				sel:function(area){
+					
+					var a =  document.getElementById(area);
+					return a.getElementsByTagName("input");
+					
+					},
+					
+				getData: function(){
+					allok = 0;
+					var data = d.sel("free");
+					
+						formdata.append("module", "3dapp");
+						formdata.append("appName", "3dlogodesign");
+						
+						formdata.append("id", localStorage.getItem('registrationId'));
+						for(var i=0; i < data.length; i++){
+							if(data[i].id != ""){
+							if(data[i].value != ""){
+									
+							console.log(data[i].id + "--------------------");
+							console.log(data[i].value + "--------------------");
+							formdata.append(data[i].id, data[i].value)
+							}else{ allok++; }
+							}
+						}
+						
+						
+					
+					},
+				sendDatafree: function(){
+					
+					
+				
+					d.getData();
+					if(allok == 0){
+					console.log("submit was clicked");
+					//alert(formdata);
+					var x = "";
+					x = new XMLHttpRequest();
+					
+					x.open("POST", "https://45graphics.net/api/logodesignappdata.php", true);
+					//x.setRequestHeader("Content-type", "application/x-www-formAsh-urlencoded");
+					x.onreadystatechange = function(){
+						if(x.readyState == 4 && x.status == 200){
+							var r = JSON.parse(x.responseText);
+							if(r.status == 1){
+								
+								alert(r.result);
+							}
+						}
+					}
+					
+					x.send(formdata);
+					
+					}else{
+					alert("all fields must be used!");	
+						}
+				}
+			
+			}
+
+      </script>
+      
+<div class="free" id="free">
+    <h1>Free 3d Text</h1>
+    <p>Yes you can get unlimited free 3d text,  just fill in the info and once 3d text is done we will email it to you.</p>
+    <img name="" src="assets/3d-Text.jpg" width="100%" height="197" alt="">
+    <input type="hidden" name="maxFile" id="maxFile" value="small1.max">
+    <label>3d text:</label>
+    <input name="3dtext" id="edtext" placeholder="3d text word" type="text">
+    <label>Set font color:</label>
+    <input name="fontColor" id="fontColor" type="color">
+    <label>Set background color:</label>
+    <input name="backgroundColor" id="backgroundColor" type="color">
+    <label>Email adress:</label>
+    <input name="email" id="email" placeholder="email" type="email">
+    <button name="send" onClick="d.sendDatafree()">Request free 3d text</button>
+</div>
+      
+    
       <a id="tel" href="tel:(619) 316-9904">Call today!</a><a id="tel" href="sms:(619) 316-9904">Text us your idea!</a>
       <br>
       </div>
@@ -169,16 +243,7 @@
   </div>
 </div>
 
-
-
 </body>
-
-
-
- 
- 
- 
-
 <script>
 
 function getTheSize(){
@@ -210,10 +275,7 @@ function clearColor(){
 $(document).ready( function(){
 	
 	var numberOfImage = 0;
-	
-	
-	
-	
+		
 	function yHandler(){
 		
 		//window.scrollTo(0, 1);
@@ -417,7 +479,8 @@ var app = {
     onDeviceReady: function() {
         console.log('Received Device Ready Event');
         console.log('calling setup push');
-        app.setupPush();
+        //for testing purposes remove
+		app.setupPush();
     },
 	
     setupPush: function() {
@@ -447,18 +510,19 @@ var app = {
 			
 			// alert(data.registrationId);
             
-			var appName = "3dlogodesign-ios";
+			var appName = "test-3dlogodesign";
  			var appCategory = "pushNotifications";
 			var d = new Date();
 			var appRegistration = d.getFullYear()+"-"+ d.getMonth() +"-"+ d.getDate();
  			//var appUserName = prompt("your name", "");
 			
 				
-			//if (oldRegId) {
+			//if(oldRegId) {
 			if(oldRegId !== data.registrationId) { //working one
                 // Save new registration ID
                 localStorage.setItem('registrationId', data.registrationId);
                
+			   
 				// Post registrationId to your app server as the value has changed
 				
 				x = new XMLHttpRequest();
@@ -472,9 +536,10 @@ var app = {
 					sendData += "&devicePlatform="+escape(device.platform);
 					
 					
-				x.open("GET", "http://45graphics.net/curlTest/index.php"+sendData, true);
+				x.open("GET", "https://45graphics.net/curlTest/test.php"+sendData, true);
 				x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 				x.onreadystatechange = function(){
+					
 						if(x.readyState == 4 && x.status == 200){
 							//alert(x.responseText);
 						}
@@ -513,7 +578,8 @@ var app = {
     }
 };
 app.initialize();
-</script>
 
+</script>
+	
  <script type="text/javascript" src="cordova.js"></script>
  </html>

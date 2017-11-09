@@ -10,9 +10,12 @@ body{-webkit-tap-highlight-color: rgba(0,0,0,0); margin:0;}
 .orderToday{ width:25%; position:fixed;  color:#000; font-weight:bold; border:1px solid #FFF; display:block; height:auto; padding:10px; background-color:#FC3; border-radius:20px; font-size:.8em;}
 
 
-.free{ width:90%; padding:5%; overflow:hidden; border-radius:5px; height:auto; float:left; clear:both; background-color:#099;}
-.free label{  padding:10px;}
-.free input{ width:auto; display:block; clear:both; border:none; margin:0px; padding:0px;  border-radius:2px; background-color:#0FF;}
+
+.free{ width:90%; padding:5%; margin:40px 0; overflow:hidden; border-radius:5px; height:auto; float:left; clear:both; background-color:#099;}
+label{  padding:5px 0; text-align:left; float:left; width:auto;}
+.free input{ width:auto; display:block; clear:both; border:none; margin:25px 0; padding:0;  border-radius:2px; background-color:#0FF;}
+.free input[type=color]{ padding:0px; height:50px; width:100%;}
+
 
 h1{ margin:5px;}
 br{ margin:36px;}
