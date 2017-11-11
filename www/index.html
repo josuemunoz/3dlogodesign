@@ -184,7 +184,10 @@
 					var c = d.sel("free");
 					for(var i=0; i < c.length; i++){
 					
-						if(c[i].id != ""){
+						if(c[i].id == "email"){
+							c[i].value = "";
+							}
+						if(c[i].id == "edtext"){
 							c[i].value = "";
 							}
 						d.byID("emailNotice").innerHTML = ""; 
