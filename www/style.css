@@ -17,7 +17,7 @@ label{ color:#336699; font-size:1em; padding:5px 0; text-shadow:none; text-align
 .free input{ width:auto; display:block; text-shadow:none; clear:both; border:none; margin:25px 0; padding:0;  border-radius:2px; background-color:#FFF}
 .free input[type=color]{ padding:0px; height:50px; width:100%;}
 .free p{ text-shadow:none; font-family:"Arial Black", Gadget, sans-serif; font-size:1.2em;}
-
+#emailNotice{ font-size:1em; color:#F00;}
 h1{ margin:5px;}
 br{ margin:36px;}
 hr{  border: 0; height: 1px ; background: #333;}
