@@ -1,6 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
-body{-webkit-tap-highlight-color: rgba(0,0,0,0); margin:0;}
+body{-webkit-tap-highlight-color: rgba(0,0,0,0); margin:0; padding:0px;}
 .logo{ width:auto; height:auto; margin:auto; padding:0px; text-align:center;}
 
 .form{ width:91%; margin:auto; padding:1%; background-color:#CCC; border-radius:10px;}
@@ -11,11 +11,12 @@ body{-webkit-tap-highlight-color: rgba(0,0,0,0); margin:0;}
 
 
 
-.free{ width:90%; padding:5%; margin:40px 0; overflow:hidden; border-radius:5px; height:auto; float:left; clear:both; background-color:#099;}
-label{  padding:5px 0; text-align:left; float:left; width:auto;}
-.free input{ width:auto; display:block; clear:both; border:none; margin:25px 0; padding:0;  border-radius:2px; background-color:#0FF;}
-.free input[type=color]{ padding:0px; height:50px; width:100%;}
+.free{ width:90%; padding:5%; margin:0; overflow:hidden; border-radius:5px; height:auto; float:left; clear:both; background-color:#F90;}
+label{ color:#336699; font-size:1em; padding:5px 0; text-shadow:none; text-align:left; float:left; width:auto;}
 
+.free input{ width:auto; display:block; text-shadow:none; clear:both; border:none; margin:25px 0; padding:0;  border-radius:2px; background-color:#FFF}
+.free input[type=color]{ padding:0px; height:50px; width:100%;}
+.free p{ text-shadow:none; font-family:"Arial Black", Gadget, sans-serif; font-size:1.2em;}
 
 h1{ margin:5px;}
 br{ margin:36px;}
@@ -54,7 +55,7 @@ background: -webkit-linear-gradient(#555, #999);
     color: white;
     float: left;
     font-family: Verdana;
-    
+    display:block; height:50px;
     padding: 10px 0;
     text-decoration: none;
     width: 100%; margin:5px 0;}
@@ -83,14 +84,38 @@ background: -webkit-linear-gradient(#555, #999);
 #bb > p{ color:white; text-shadow:none; text-align:center; font-size:1em;}
 #bb > img{ border-radius:20px; box-shadow:1px 2px 2px #000000;}
 
-#slogan p{ text-align:left; line-height:20px; color:#CCC;}
-#slogan{ font:Arial, Helvetica, sans-serif; border-radius:10px; background:#000; font-size:.8em; color:white; text-shadow:1px 1px 2px #000000; padding: 20px; text-align:center;}
+#services{ width:100%; height:auto; display:block; font-family:"Arial Black", Gadget, sans-serif; font-size:1.2em;}
+#services ol{ text-align:left;}
+#services ul, #services li{ padding:0px; margin:0px;}
+#services li{ text-decoration:none; text-align:left; list-style:none;}
+
+
+.sec{ margin:20px 0; padding:0px; width:100%; float:left; display:block;}
+
+#slogan p{ width:auto; text-align:left; font-size:1.5em; margin:20px; float:left; display:block; line-height:30px; color:#336699;}
+#slogan{
+	width:auto; height:auto;
+	font:Arial, Helvetica, sans-serif;
+	border-radius:10px; padding:20px;
+ font-size:.8em; color:white;
+text-shadow:1px 1px 2px #000000; text-align:center;}
 #latestJob{background: none repeat scroll 0 0 black; border: solid #999 1px 0px;
     margin: 10px 0;
     padding: 10px;
     text-align: center; display:none;
     width: auto; color:#FC0; clear:both; text-shadow:none; border-style:solid; border-width:1px 0px; border-color:#999;}
 h2{ color:white; text-shadow:none;}
+
+@media only screen and (min-width: 320px) {
+	h1{ font-size:1.5em;}
+	#tel, #emailB{ font-size:1em; height:50px; line-height:50px;}
+	}
+@media only screen and (min-width: 360px) {
+	h1{ font-size:1.5em;}
+	#tel, #emailB{ font-size:1.3em; height:50px; line-height:50px;}
+	
+	}
+
 
 
 
